@@ -15,6 +15,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObjectsNopcommerce.Admin.AdminLoginPageObject;
+import pageObjectsNopcommerce.User.UserAddressPageObject;
+import pageObjectsNopcommerce.User.UserCustomerInfoPageObject;
+import pageObjectsNopcommerce.User.UserHomePageObject;
+import pageObjectsNopcommerce.User.UserMyProductReviewsPageObject;
+import pageObjectsNopcommerce.User.UserOrdersPageObject;
+import pageObjectsNopcommerce.User.UserRewardPointsPageObject;
+import pageUIs.Nopcommerce.User.BasePageUI;
+
 public class BasePage {
 	private long longTime = 30;
 
@@ -333,9 +342,7 @@ public class BasePage {
 	}
 
 	public void waitForElementInvisible(WebDriver driver, String xPathLocator) {
-		System.out.println("11111");
 		WebDriverWait explicitwait = new WebDriverWait(driver, longTime);
-		System.out.println("2222");
 		explicitwait.until(ExpectedConditions.invisibilityOfElementLocated(getXpath(xPathLocator)));
 	}
 
@@ -349,5 +356,50 @@ public class BasePage {
 	public void waitForElementClickable(WebDriver driver, String xPathLocator) {
 		WebDriverWait explicitwait = new WebDriverWait(driver, longTime);
 		explicitwait.until(ExpectedConditions.elementToBeClickable(getXpath(xPathLocator)));
+	}
+	
+	public UserAddressPageObject openAddressPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.ADDRESS_LINK);
+		clickToElement(driver, BasePageUI.ADDRESS_LINK);
+		return PageGeneratorManager.getAddressPage(driver);
+	}
+	
+	public UserOrdersPageObject openOrdersPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.ORDERS_LINK);
+		clickToElement(driver, BasePageUI.ORDERS_LINK);
+		return PageGeneratorManager.getOrdersPage(driver);
+	}
+	
+	public UserRewardPointsPageObject openRewardPointsPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.REWARDPOINTS_LINK);
+		clickToElement(driver, BasePageUI.REWARDPOINTS_LINK);
+		return PageGeneratorManager.getRewardPointsPage(driver);
+	}
+	
+	public UserMyProductReviewsPageObject openMyProductReviewsPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.MYPRODUCTREVIWS_LINK);
+		clickToElement(driver, BasePageUI.MYPRODUCTREVIWS_LINK);
+		return PageGeneratorManager.getMyProductReviewsPage(driver);
+	}
+	
+	public UserCustomerInfoPageObject openCustomerInfoPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.CUSTOMERINFO_LINK);
+		clickToElement(driver, BasePageUI.CUSTOMERINFO_LINK);
+		return PageGeneratorManager.getUserCustomerInfoPage(driver);
+	}
+	
+	public UserHomePageObject clickToLogoutLinkAtUserPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.LOGOUT_USER_LINK);
+		clickToElement(driver, BasePageUI.LOGOUT_USER_LINK);
+		return PageGeneratorManager.getUserHomePage(driver);
+	
+	}
+	
+	public AdminLoginPageObject clickToLogoutLinkAtAdminPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.LOGOUT_ADMIN_LINK);
+		clickToElement(driver, BasePageUI.LOGOUT_ADMIN_LINK);
+		return PageGeneratorManager.getAdminLoginPage(driver);
+		
+	
 	}
 }

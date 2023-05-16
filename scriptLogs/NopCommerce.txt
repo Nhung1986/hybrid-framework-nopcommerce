@@ -1,0 +1,14 @@
+[INFO ] [2023-05-09 17:08:50,321] Register - Step 01 - Click to Register link
+[INFO ] [2023-05-09 17:08:53,322] Register - Step 02 - Input value to firstname textbox nhung
+[INFO ] [2023-05-09 17:08:53,496] Register - Step 03 - Input value to lastname textbox tran
+[INFO ] [2023-05-09 17:08:53,676] Register - Step 04 - Input value to emailAddress textbox lisatran945267@gmail.com
+[INFO ] [2023-05-09 17:08:53,860] Register - Step 05 - Input value to password textbox 123456
+[INFO ] [2023-05-09 17:08:54,039] Register - Step 06 - Input value to confirm password textbox 123456
+[INFO ] [2023-05-09 17:08:54,204] Register - Step 07 - Click to Register button
+[INFO ] [2023-05-09 17:08:55,176] Register - Step 09 - Verify message success
+[INFO ] [2023-05-09 17:08:55,258] Login - Step 01 - Click to Login link
+[INFO ] [2023-05-09 17:08:55,701] Login - Step 02 - Input value to Email textbox lisatran945267@gmail.com
+[INFO ] [2023-05-09 17:08:55,897] Login - Step 03 - Input value to password textbox 123456
+[INFO ] [2023-05-09 17:08:56,086] Login - Step 04 - Click to Login button
+[INFO ] [2023-05-09 17:08:57,024] Login - Step 05 - Verify MyAccount link display
+[INFO ] [2023-05-09 17:08:57,124] Login - Step 06 - Verify Logout link display

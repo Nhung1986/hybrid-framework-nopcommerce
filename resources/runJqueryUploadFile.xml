@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Jquery">
-  <parameter name="url" value ="https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/"/> 
+  <parameter name="url" value ="https://blueimp.github.io/jQuery-File-Upload/"/> 
   <test name="Run On Chrome">
   	<parameter name="browser" value ="chrome"/>
     <classes>
-      <class name="com.jquery.datatable.Level_09_Datatable_DataGrid"/>
+      <class name="com.jquery.uploadfile.Level_10_UploadFile"/>
     </classes>
   </test> 
    

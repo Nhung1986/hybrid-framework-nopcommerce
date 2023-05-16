@@ -23,6 +23,7 @@ import pageObjectsNopcommerce.User.UserHomePageObject;
 import pageObjectsNopcommerce.User.UserMyProductReviewsPageObject;
 import pageObjectsNopcommerce.User.UserOrdersPageObject;
 import pageObjectsNopcommerce.User.UserRewardPointsPageObject;
+import pageUIs.Jquery.UploadFile.HomePageUploadUI;
 import pageUIs.Nopcommerce.User.BasePageUI;
 
 public class BasePage {
@@ -412,6 +413,18 @@ public class BasePage {
 			return false;
 		}
 	}
+	
+	public boolean isImageLoaded(WebDriver driver, String locatorType, String...dymanicValues) {
+		JavascriptExecutor jsExcutor = (JavascriptExecutor) driver;
+		boolean status = (boolean) jsExcutor.executeScript(
+				"return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0",
+				getWebElement(driver, getDynamicXpath(locatorType, dymanicValues)));
+		if (status) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	public void waitForElementVisible(WebDriver driver, String locatorType, String...dymanicValues) {
 		WebDriverWait explicitwait = new WebDriverWait(driver, longTime);
@@ -460,6 +473,26 @@ public class BasePage {
 		WebDriverWait explicitwait = new WebDriverWait(driver, longTime);
 		explicitwait.until(ExpectedConditions.elementToBeClickable(getByLocator(getDynamicXpath(locatorType, dymanicValues))));
 	}
+	
+	
+	public void uploadMultipleFiles(WebDriver driver, String... fileNames) {
+		String filePath = System.getProperty("user.dir") + getDirectorySlash("uploadFiles");
+		String fullFileName = "";
+		
+		for (String file : fileNames) {
+			fullFileName = fullFileName + filePath + file + "\n";
+		}
+		
+		fullFileName = fullFileName.trim();
+		
+		getWebElement(driver, HomePageUploadUI.UPLOAD_BUTTON).sendKeys(fullFileName);
+	}
+	
+	public String getDirectorySlash(String folderName) {
+		String separator = System.getProperty("file.separator");
+		return separator + folderName + separator;
+	}
+	
 	
 	public UserAddressPageObject openAddressPage(WebDriver driver) {
 		waitForElementClickable(driver, BasePageUI.ADDRESS_LINK);
